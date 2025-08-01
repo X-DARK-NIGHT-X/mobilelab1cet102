@@ -5,36 +5,81 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 0),
-          buildFoodItem('assets/1.jpg', 'กระเพรา'),
-          const SizedBox(height: 15),
-          buildFoodItem('assets/2.jpg', 'สเต็ก'),
-          const SizedBox(height: 15),
-          buildFoodItem('assets/3.jpg', 'แฮมเบอเกอร์'),
-        ],
-      ),
-    );
-  }
-
-  Widget buildFoodItem(String imagePath, String foodName) {
     return Center(
-      child: Stack(
-        alignment: Alignment.bottomCenter,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(imagePath, width: 200, height: 200),
-          Transform.translate(
-            offset: const Offset(0, 1),
-            child: Text(
-              foodName,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-                backgroundColor: Colors.white70,
+          TextButton(
+            onPressed: () {
+              print("TextButton Click");
+            },
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+            ),
+            child: const Text.rich(
+              TextSpan(
+                text: '',
+                children: [
+                  TextSpan(
+                    text: 'Click',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
               ),
+            ),
+          ),
+
+          const SizedBox(height: 10),
+
+          FilledButton(
+            onPressed: () {
+              print("FilledButton Click");
+            },
+            style: FilledButton.styleFrom(
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+            ),
+            child: const Text(
+              "Click",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+          ),
+
+          const SizedBox(height: 10),
+
+          OutlinedButton(
+            onPressed: () {
+              print("OutlinedButton Click");
+            },
+            style: OutlinedButton.styleFrom(
+              backgroundColor: Colors.yellow,
+              foregroundColor: const Color.fromARGB(51, 255, 255, 255),
+              side: const BorderSide(color: Color.fromARGB(255, 255, 255, 255)),
+            ),
+            child: const Text(
+              "Click",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+          ),
+
+          const SizedBox(height: 10),
+
+          ElevatedButton(
+            onPressed: () {
+              print("ElevatedButton Click");
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              foregroundColor: const Color.fromARGB(50, 255, 255, 255),
+            ),
+            child: const Text(
+              "Click",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
           ),
         ],
